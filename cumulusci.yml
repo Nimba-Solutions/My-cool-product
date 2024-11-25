@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.78.0'
+project:
+    name: My-cool-product
+    package:
+        name: My-cool-product
+        api_version: '62.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/My-cool-product/tests
+            options:
+                outputdir: robot/My-cool-product/results
+
+    robot_testdoc:
+        options:
+            path: robot/My-cool-product/tests
+            output: robot/My-cool-product/doc/My-cool-product_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
